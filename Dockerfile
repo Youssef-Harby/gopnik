@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:22.04
 
 MAINTAINER Dmitry Pokidov <dooman87@gmail.com>
 
@@ -10,18 +10,18 @@ ENV GOPATH=/gohome
 ENV GOROOT=/opt/go
 
 RUN apt-get update && \
-    apt-get -y install automake bison flex g++ git libboost1.54-all-dev libevent-dev libssl-dev libtool make \
+    apt-get -y install automake bison flex g++ git libboost1.74-all-dev libevent-dev libssl-dev libtool make \
     pkg-config wget \
-    python-mapnik libmapnik-dev \
+    python3-mapnik libmapnik-dev \
     protobuf-compiler libprotobuf-dev \
     jq cmake libncurses5-dev && \
     rm -rf /var/lib/apt/lists/*
 
 #Installing apache thrift
-RUN wget http://apache.uberglobalmirror.com/thrift/0.9.3/thrift-0.9.3.tar.gz && \
-    tar -xzvf thrift-0.9.3.tar.gz && \
-    rm ./thrift-0.9.3.tar.gz && \
-    cd /thrift-0.9.3 && \
+RUN wget https://dlcdn.apache.org/thrift/0.18.1/thrift-0.18.1.tar.gz && \
+    tar -xzvf thrift-0.18.1.tar.gz && \
+    rm ./thrift-0.18.1.tar.gz && \
+    cd /thrift-0.18.1 && \
     ./configure --without-java && \
     make && \
     make install
