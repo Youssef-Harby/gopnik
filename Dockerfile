@@ -18,10 +18,10 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 #Installing apache thrift
-RUN wget https://dlcdn.apache.org/thrift/0.18.1/thrift-0.18.1.tar.gz && \
-    tar -xzvf thrift-0.18.1.tar.gz && \
-    rm ./thrift-0.18.1.tar.gz && \
-    cd /thrift-0.18.1 && \
+RUN wget https://dlcdn.apache.org/thrift/0.19.0/thrift-0.19.0.tar.gz && \
+    tar -xzvf thrift-0.19.0.tar.gz && \
+    rm ./thrift-0.19.0.tar.gz && \
+    cd /thrift-0.19.0 && \
     ./configure --without-java && \
     make && \
     make install
